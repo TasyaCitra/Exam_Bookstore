@@ -9,8 +9,16 @@ class MainController extends Controller
 {
     public function index()
     {
-        // $books = books::paginate(15); alternatif
-        $books = books::all();
+        $books = books::orderBy('voter', 'desc')->paginate(10);
+        // $books = books::all();
         return view('index', compact('books'));
+    }
+
+    public function menu()
+    {
+        $value = books::all();
+        $value->avg('rating');
+
+        return view('menu')->withValue($value);
     }
 }

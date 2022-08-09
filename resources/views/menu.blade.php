@@ -19,15 +19,21 @@
                             <thead>
                                 <tr>
                                     <th>No</th>
+                                    <th>Book Name</th>
+                                    <th>category Name</th>
                                     <th>Author Name</th>
+                                    <th>average rating</th>
                                     <th>Voter</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach ($books as $b)
+                                @foreach ($value as $b)
                                     <tr>
                                         <td>{{ $loop->iteration }}</td>
+                                        <td>{{ $b->book_name }}</td>
+                                        <td>{{ $b->category }}</td>
                                         <td>{{ $b->author }}</td>
+                                        <td>{{ $b->rating / 10 }}</td>
                                         <td>{{ $b->voter }}</td>
                                     </tr>
                                 @endforeach

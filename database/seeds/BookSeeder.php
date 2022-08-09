@@ -21,8 +21,8 @@ class BookSeeder extends Seeder
                 'book_name' => $title,
                 'author' => $faker->name,
                 'category' => $faker->word,
-                'rating' => mt_rand(1, 10),
-                'voter' => mt_rand(1, 500),
+                'rating' => $faker->numberBetween(1, 100),
+                'voter' => $faker->numberBetween(1, 500),
             ];
         }
         DB::table('books')->insert($books);
