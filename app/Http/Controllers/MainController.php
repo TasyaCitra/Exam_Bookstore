@@ -14,6 +14,12 @@ class MainController extends Controller
         return view('index', compact('books'));
     }
 
+    public function input()
+    {
+
+        return view('input');
+    }
+
     public function menu()
     {
         $value = books::paginate(10);
@@ -23,12 +29,12 @@ class MainController extends Controller
 
     public function paginate(Request $request)
     {
-
+        ///ddd($request);
         //$value = books::paginate($request->page);
-        $value = books::where('author', 'LIKE', '%' . $request->search . '%')
-            ->orWhere('book_name', 'LIKE', '%' . $request->search . '%')
+        $value = books::where('book_name', 'LIKE', '%' . $request->src . '%')
+            ->orWhere('author', 'LIKE', '%' . $request->src . '%')
             ->paginate($request->page);
 
-        return view('menu')->withValue($value);
+        return view('menu', compact('value'));
     }
 }

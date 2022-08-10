@@ -32,11 +32,12 @@
                                         <option value="100">100</option>
                                     </select>
                                     <div class="input-group">
-                                        <input type="text" name="search" class="form-control"
-                                            value="{{ old('search') }}" placeholder="Search" required>
-                                        <div class="input-group-btn">
-                                            <button class="btn btn-primary">Submit</button>
-                                        </div>
+                                        <input type="text" name="src" class="form-control" placeholder="Search"
+                                            required>
+                                    </div>
+                                    <div class="input-group-btn">
+                                        <button class="btn btn-primary">Submit</button>
+                                    </div>
                                 </form>
                                 <tr>
                                     <th>No</th>
