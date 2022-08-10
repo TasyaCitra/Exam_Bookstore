@@ -16,8 +16,8 @@ class MainController extends Controller
 
     public function input()
     {
-
-        return view('input');
+        $value = books::paginate(10);
+        return view('input')->withValue($value);
     }
 
     public function menu()
