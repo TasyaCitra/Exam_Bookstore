@@ -17,6 +17,27 @@
                     <div class="card-body">
                         <table class="table table-striped table-bordered">
                             <thead>
+                                <form method="POST" action="{{ route('menu.paginate') }}">
+                                    @csrf
+                                    <select id="page" name="page">
+                                        <option value="10">10</option>
+                                        <option value="20">20</option>
+                                        <option value="30">30</option>
+                                        <option value="40">40</option>
+                                        <option value="50">50</option>
+                                        <option value="60">60</option>
+                                        <option value="70">70</option>
+                                        <option value="80">80</option>
+                                        <option value="90">90</option>
+                                        <option value="100">100</option>
+                                    </select>
+                                    <div class="input-group">
+                                        <input type="text" name="search" class="form-control"
+                                            value="{{ old('search') }}" placeholder="Search" required>
+                                        <div class="input-group-btn">
+                                            <button class="btn btn-primary">Submit</button>
+                                        </div>
+                                </form>
                                 <tr>
                                     <th>No</th>
                                     <th>Book Name</th>

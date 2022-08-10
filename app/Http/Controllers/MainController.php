@@ -16,7 +16,18 @@ class MainController extends Controller
 
     public function menu()
     {
-        $value = books::paginate(10);
+        $value = books::all();
+
+        return view('menu')->withValue($value);
+    }
+
+    public function paginate(Request $request)
+    {
+
+        //$value = books::paginate($request->page);
+        $value = books::where('author', 'LIKE', '%' . $request->search . '%')
+            ->orWhere('book_name', 'LIKE', '%' . $request->search . '%')
+            ->paginate($request->page);
 
         return view('menu')->withValue($value);
     }
