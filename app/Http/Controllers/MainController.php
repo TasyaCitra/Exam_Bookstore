@@ -16,7 +16,7 @@ class MainController extends Controller
 
     public function menu()
     {
-        $value = books::all();
+        $value = books::paginate(10);
 
         return view('menu')->withValue($value);
     }
