@@ -33,7 +33,7 @@
                                         <td>{{ $b->book_name }}</td>
                                         <td>{{ $b->category }}</td>
                                         <td>{{ $b->author }}</td>
-                                        <td>{{ $b->rating / 10 }}</td>
+                                        <td>{{ $b->rating / 100 }}</td>
                                         <td>{{ $b->voter }}</td>
                                     </tr>
                                 @endforeach
