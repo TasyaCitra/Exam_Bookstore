@@ -15,5 +15,6 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', 'MainController@index');
 Route::get('/input', 'MainController@input');
+Route::post('/input', 'MainController@author')->name('input.author');
 Route::get('/menu', 'MainController@menu');
 Route::post('/menu', 'MainController@paginate')->name('menu.paginate');

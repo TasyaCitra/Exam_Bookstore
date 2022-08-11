@@ -15,23 +15,28 @@
             <div class="col-md-8">
                 <div class="card">
                     <div class="card-body">
-                        <form>
+                        <form method="POST" action="{{ route('input.author') }}"">
                             @csrf
 
                             <div class="input-group mb-3">
-                                <label class="input-group-text" for="inputGroupSelect01">Book name</label>
+                                <label class="input-group-text" for="inputGroupSelect01">Book Author</label>
+                                <select class="form-select" id="inputGroupSelect01" name="select">
+                                    <option selected>Choose...</option>
+                                    @foreach ($value as $d)
+                                        <option value="{{ $d->author }}">{{ $d->author }}</option>
+                                    @endforeach
+                                </select>
+                                <div class="input-group-btn">
+                                    <button class="btn btn-secondary">Submit</button>
+                                </div>
+                            </div>
+                            <div class="input-group mb-3">
+                                <label class="input-group-text" for="inputGroupSelect01">Book Name</label>
                                 <select class="form-select" id="inputGroupSelect01">
                                     <option selected>Choose...</option>
                                     @foreach ($value as $d)
                                         <option value="{{ $d->book_name }}">{{ $d->book_name }}</option>
                                     @endforeach
-                                </select>
-                            </div>
-                            <div class="input-group mb-3">
-                                <label class="input-group-text" for="inputGroupSelect01">author</label>
-                                <select class="form-select" id="inputGroupSelect01">
-                                    <option selected>Choose...</option>
-                                    <option value="1">One</option>
                                 </select>
                             </div>
 

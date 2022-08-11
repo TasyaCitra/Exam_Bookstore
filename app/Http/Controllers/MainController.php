@@ -16,7 +16,16 @@ class MainController extends Controller
 
     public function input()
     {
-        $value = books::paginate(10);
+        $value = books::all();
+        return view('input')->withValue($value);
+    }
+
+    public function author(Request $request)
+    {
+
+        $value = books::where('author', 'LIKE', '%' . $request->select . '%')
+            ->get();
+
         return view('input')->withValue($value);
     }
 
